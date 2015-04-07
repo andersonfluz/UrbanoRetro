@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Urbano e Retrô</string>
+
+    <string name="title_section1">Ultimos Videos</string>
+    <string name="title_section2">Blog</string>
+    <string name="title_section3">Seção Youtube</string>
+
+    <string name="hello_world">Hello world!</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_section4">Redes Sociais</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
