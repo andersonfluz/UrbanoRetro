@@ -22,7 +22,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-public class MasterActivity extends ActionBarActivity implements ActionBar.TabListener,CanalYTFragment.OnFragmentInteractionListener, BlogFragment.OnFragmentInteractionListener, VideosFragment.OnFragmentInteractionListener {
+public class MasterActivity extends ActionBarActivity implements ActionBar.TabListener,CanalYTFragment.OnFragmentInteractionListener, BlogFragment.OnFragmentInteractionListener, VideosFragment.OnFragmentInteractionListener, SocialFragment.OnFragmentInteractionListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -48,6 +48,7 @@ public class MasterActivity extends ActionBarActivity implements ActionBar.TabLi
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DDF0E4")));
+        actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#DDF0E4")));
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -123,6 +124,11 @@ public class MasterActivity extends ActionBarActivity implements ActionBar.TabLi
 
     }
 
+    @Override
+    public void onFragmentInteraction(String id) {
+
+    }
+
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
@@ -140,13 +146,13 @@ public class MasterActivity extends ActionBarActivity implements ActionBar.TabLi
             //return PlaceholderFragment.newInstance(position + 1);
             Fragment fragment = null;
             if(position == 0){
-                fragment = new VideosFragment();
+                fragment = new BlogFragment();
             }else if(position == 1){
-                fragment = new BlogFragment();
+                fragment = new CanalYTFragment();
             }else if(position == 2){
-            fragment = new CanalYTFragment();
+                fragment = new SocialFragment();
             }else if(position == 3){
-                fragment = new BlogFragment();
+                fragment = new VideosFragment();
             }
             return fragment;
         }
@@ -162,13 +168,13 @@ public class MasterActivity extends ActionBarActivity implements ActionBar.TabLi
             Locale l = Locale.getDefault();
             switch (position) {
                 case 0:
-                    return getString(R.string.title_section1).toUpperCase(l);
-                case 1:
                     return getString(R.string.title_section2).toUpperCase(l);
-                case 2:
+                case 1:
                     return getString(R.string.title_section3).toUpperCase(l);
-                case 3:
+                case 2:
                     return getString(R.string.title_section4).toUpperCase(l);
+                case 3:
+                    return getString(R.string.title_section1).toUpperCase(l);
             }
             return null;
         }
